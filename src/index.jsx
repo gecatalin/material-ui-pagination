@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FlatButton from 'material-ui/FlatButton';
+import Button from 'material-ui/Button';
+import IconButton from 'material-ui/IconButton';
+
 import NavigationFirstPage from 'material-ui/svg-icons/navigation/first-page';
 import NavigationLastPage from 'material-ui/svg-icons/navigation/last-page';
 
@@ -44,7 +46,7 @@ const getStateFromProps = props => {
 };
 
 const Page = ({ value, isActive, onClick, styleButton, stylePrimary }) => {
-  return !styleButton ? (<FlatButton
+  return !styleButton ? (<Button
     style = { flatButtonStyle }
     label = { value.toString() }
     primary = { isActive }
@@ -67,11 +69,10 @@ Page.propTypes = {
 };
 
 const FirstPageLink = ({ onClick, styleFirstPageLink }) => {
-  return !styleFirstPageLink ? (<FlatButton
-    style = { flatButtonStyle }
-    icon = { <NavigationFirstPage /> }
+  return !styleFirstPageLink ? (<IconButton
+    style = { flatButtonStyle }   
     onTouchTap = { onClick }
-  />) : (<div
+  ><NavigationFirstPage /></IconButton>) : (<div
     style = { styleFirstPageLink }
     onTouchTap = { onClick }
   />);
@@ -83,11 +84,11 @@ FirstPageLink.propTypes = {
 };
 
 const LastPageLink = ({ onClick, styleLastPageLink }) => {
-  return !styleLastPageLink ? (<FlatButton
+  return !styleLastPageLink ? (<IconButton
     style = { flatButtonStyle }
-    icon = { <NavigationLastPage /> }
+ 
     onTouchTap = { onClick }
-  />) : (<div
+  ><NavigationLastPage /></IconButton>) : (<div
     style = { styleLastPageLink }
     onTouchTap = { onClick }
   />);
